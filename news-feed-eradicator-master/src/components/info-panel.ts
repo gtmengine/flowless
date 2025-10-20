@@ -33,19 +33,10 @@ const About = () => {
 				"In recent years, we've seen the news feed proliferate across all sort of apps thanks to " +
 					"its addictive power over users. I think it's long overdue that we as users take that power back."
 			),
-			h('p', [
-				'Flowless is and always will be free and ',
-				h(
-					'a.underline-hover',
-					{
-						props: {
-							href: 'https://github.com/gtmengine/Flowless-',
-						},
-					},
-					'open-source'
-				),
-				', and will never track you.',
-			]),
+			h(
+				'p',
+				'Flowless is and always will be free and open-source, and will never track you.'
+			),
 		]),
 		h('div.v-stack-2', [
 			h('h2', 'Support'),
