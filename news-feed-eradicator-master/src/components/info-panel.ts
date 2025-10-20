@@ -60,26 +60,18 @@ const About = () => {
 		]),
 		h('div.v-stack-2', [
 			h('h2', 'Support'),
-			h(
-				'p',
-				"If Flowless has helped you reclaim your time and focus, here's how you can help:"
-			),
-			h('ul', [
-				h('li', 'Share Flowless with friends who might benefit'),
-				h('li', 'Give it a ⭐ star on GitHub'),
-				h('li', [
-					'Report bugs or contribute code on ',
-					h(
-						'a.underline-hover',
-						{
-							props: {
-								href: 'https://github.com/gtmengine/Flowless-',
-							},
+			h('p', [
+				'View source code, report bugs, or contribute on ',
+				h(
+					'a.underline-hover',
+					{
+						props: {
+							href: 'https://github.com/gtmengine/Flowless-',
 						},
-						'GitHub'
-					),
-				]),
-				h('li', 'Share your success story - tag us on social media'),
+					},
+					'GitHub'
+				),
+				'.',
 			]),
 		]),
 	]);
