@@ -20,13 +20,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.2.5] - 2023-05-09
 
-- [Fix Facebook for languages other than English (thanks @nzawirski)](https://github.com/jordwest/news-feed-eradicator/pull/256)
-- [Fix GitHub home (thanks @Khanaru220)](https://github.com/jordwest/news-feed-eradicator/pull/251)
-- [Fix logged out Twitter feed (thanks @weeksling)](https://github.com/jordwest/news-feed-eradicator/pull/263)
+- Fix Facebook for languages other than English (thanks @nzawirski)
+- Fix GitHub home (thanks @Khanaru220)
+- Fix logged out Twitter feed (thanks @weeksling)
 
 ## [2.2.4] - 2022-11-15
 
-- [Fixed Facebook (thanks @nzawirski)](https://github.com/jordwest/news-feed-eradicator/pull/244)
+- Fixed Facebook (thanks @nzawirski)
 - Fixed Hacker News
 
 ## [2.2.3] - 2022-09-27
@@ -47,7 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- [Instagram support by @ryanmonro](https://github.com/jordwest/news-feed-eradicator/pull/105)
+- Instagram support by @ryanmonro
 
 ### Fixed
 
@@ -58,20 +58,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - YouTube support
-- [LinkedIn support by @viswanathgs](https://github.com/jordwest/news-feed-eradicator/pull/101)
+- LinkedIn support by @viswanathgs
 
 ### Fixed
 
 - Also blocks feed
-  on `facebook.com/home.php` [(thanks @hannoeru)](https://github.com/jordwest/news-feed-eradicator/pull/109)
+  on `facebook.com/home.php` (thanks @hannoeru)
 - Ekhart Tolle is Eckhart Tolle
 
 ## [2.1.0] - 2020-10-21
 
 ### Added
 
-- [Reddit support by @kessido](https://github.com/jordwest/news-feed-eradicator/pull/98)
-- [Hacker News support by @rjshade](https://github.com/jordwest/news-feed-eradicator/pull/97)
+- Reddit support by @kessido
+- Hacker News support by @rjshade
 
 ### Fixed
 

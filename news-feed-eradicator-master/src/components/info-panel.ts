@@ -39,7 +39,7 @@ const About = () => {
 					'a.underline-hover',
 					{
 						props: {
-							href: 'https://github.com/jordwest/news-feed-eradicator/',
+							href: 'https://github.com/gtmengine/Flowless-',
 						},
 					},
 					'open-source'
@@ -61,7 +61,7 @@ const About = () => {
 						'a.underline-hover',
 						{
 							props: {
-								href: 'https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=en',
+								href: '#',
 							},
 						},
 						'Chrome'
@@ -71,7 +71,7 @@ const About = () => {
 						'a.underline-hover',
 						{
 							props: {
-								href: 'https://addons.mozilla.org/en-US/firefox/addon/news-feed-eradicator/',
+								href: '#',
 							},
 						},
 						'Firefox'
@@ -84,7 +84,7 @@ const About = () => {
 						'a.underline-hover',
 						{
 							props: {
-								href: 'https://github.com/jordwest/news-feed-eradicator/',
+								href: 'https://github.com/gtmengine/Flowless-',
 							},
 						},
 						'GitHub'
@@ -102,7 +102,7 @@ const About = () => {
 					'li',
 					h(
 						'a.underline-hover',
-						{ props: { href: 'https://gumroad.com/l/news-feed-eradicator' } },
+						{ props: { href: '#' } },
 						'Buy me a coffee'
 					)
 				),
