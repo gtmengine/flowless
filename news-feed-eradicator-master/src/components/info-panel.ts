@@ -19,22 +19,22 @@ const About = () => {
 			h('h2', 'About'),
 			h(
 				'p',
-				'Flowless was born in 2012 in a bout of procrastination. I first noticed that ' +
-					"I wasn't in control of my own mind when I found myself typing " +
-					'"facebook.com" into the address bar unconsciously. '
+				'Flowless helps you take back control from addictive social media feeds. ' +
+					'Many people find themselves unconsciously typing social media URLs into their browser, ' +
+					'losing hours to endless scrolling without even realizing it.'
 			),
 			h(
 				'p',
-				'Though I was forced to use Facebook for my studies, I realised I just had to find a way to reduce its addictive power over me. ' +
-					'The number one thing that felt so addictive about it was the news feed.'
+				'Social media platforms have perfected the art of capturing attention through their news feeds. ' +
+					'While these platforms can be useful for communication, the endless feed often becomes a time sink and source of distraction.'
 			),
 			h(
 				'p',
-				"In recent years, we've seen the news feed proliferate across all sort of apps thanks to " +
-					"its addictive power over users. I think it's long overdue that we as users take that power back."
+				'Flowless blocks these addictive feeds and replaces them with inspiring quotes, cat pictures, or a blank space - ' +
+					"giving you back control of your time and attention. It's your browser, your rules."
 			),
 			h('p', [
-				'Flowless is and always will be free and ',
+				'Flowless is completely free, ',
 				h(
 					'a.underline-hover',
 					{
@@ -44,42 +44,31 @@ const About = () => {
 					},
 					'open-source'
 				),
-				', ' + 'and will never track you.',
+				', and will never track you or collect your data.',
+			]),
+		]),
+		h('div.v-stack-2', [
+			h('h2', 'Features'),
+			h('ul', [
+				h('li', 'Block feeds on Facebook, Twitter/X, Instagram, LinkedIn, Reddit, YouTube, GitHub, and Hacker News'),
+				h('li', 'Replace feeds with inspiring quotes or cute cat pictures'),
+				h('li', 'Custom word replacement to make social media content more interesting'),
+				h('li', 'Temporary "Show feed" option when you need it'),
+				h('li', 'Dark mode interface'),
+				h('li', 'Complete privacy - no tracking, no data collection'),
 			]),
 		]),
 		h('div.v-stack-2', [
 			h('h2', 'Support'),
 			h(
 				'p',
-				"If Flowless has saved you time or mental energy and you'd like to help out, there are a number of ways you can do so:"
+				"If Flowless has helped you reclaim your time and focus, here's how you can help:"
 			),
 			h('ul', [
-				h('li', 'Tell your friends about it'),
+				h('li', 'Share Flowless with friends who might benefit'),
+				h('li', 'Give it a ⭐ star on GitHub'),
 				h('li', [
-					'Leave a review on the ',
-					h(
-						'a.underline-hover',
-						{
-							props: {
-								href: '#',
-							},
-						},
-						'Chrome'
-					),
-					' or ',
-					h(
-						'a.underline-hover',
-						{
-							props: {
-								href: '#',
-							},
-						},
-						'Firefox'
-					),
-					' store',
-				]),
-				h('li', [
-					'Report or fix bugs via ',
+					'Report bugs or contribute code on ',
 					h(
 						'a.underline-hover',
 						{
@@ -90,22 +79,7 @@ const About = () => {
 						'GitHub'
 					),
 				]),
-				h('li', [
-					h(
-						'a.underline-hover',
-						{ props: { href: 'https://west.io/' } },
-						'Let me know'
-					),
-					" how it's helped you",
-				]),
-				h(
-					'li',
-					h(
-						'a.underline-hover',
-						{ props: { href: '#' } },
-						'Buy me a coffee'
-					)
-				),
+				h('li', 'Share your success story - tag us on social media'),
 			]),
 		]),
 	]);
