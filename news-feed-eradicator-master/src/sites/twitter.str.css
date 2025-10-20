@@ -1,0 +1,38 @@
+/* Twitter */
+html:not([data-nfe-enabled='false'])
+	div[data-testid='primaryColumn']
+	> div:last-child
+	> div:nth-child(4)
+	> #nfe-container {
+	padding: 16px;
+}
+
+html:not([data-nfe-enabled='false']) div[aria-label*='Timeline'],
+html:not([data-nfe-enabled='false']) div[data-testid="primaryColumn"] > div:last-child > div:last-child
+{
+	opacity: 0 !important;
+	pointer-events: none !important;
+}
+
+/* "What's Happening" section on Twitter */
+[data-testid='sidebarColumn'] [role='region'] {
+	opacity: 0 !important;
+	pointer-events: none !important;
+	height: 0 !important;
+}
+
+/* Hide specific timeline element on Twitter */
+html:not([data-nfe-enabled='false']) body > div:first-child > div > div > div:nth-child(2) > main > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div > div:nth-child(7) {
+	opacity: 0 !important;
+	pointer-events: none !important;
+	height: 0 !important;
+	display: none !important;
+}
+
+/* Alternative selector for Twitter timeline elements */
+html:not([data-nfe-enabled='false']) main div[data-testid='primaryColumn'] > div > div:nth-child(2) > div > div > div > div:nth-child(7) {
+	opacity: 0 !important;
+	pointer-events: none !important;
+	height: 0 !important;
+	display: none !important;
+}
