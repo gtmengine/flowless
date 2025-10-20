@@ -98,13 +98,10 @@ news-feed-eradicator-master/
 
 ## License
 
-Original project by Jordan West. Modified and enhanced as "Flowless".
-
-## Credits
-
-Based on [News Feed Eradicator](https://github.com/jordwest/news-feed-eradicator) by Jordan West.
+MIT License - See LICENSE file for details.
 
 ---
 
 Made with ❤️ to help you stay focused and productive.
+
 
