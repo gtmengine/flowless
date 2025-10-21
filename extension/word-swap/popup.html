@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 400px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 12px 0;
+      color: #202124;
+    }
+    h2 {
+      font-size: 14px;
+      margin: 16px 0 8px 0;
+      color: #5f6368;
+      font-weight: 500;
+    }
+    .input-group {
+      margin-bottom: 12px;
+    }
+    input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    input:focus {
+      outline: none;
+      border-color: #1a73e8;
+    }
+    button {
+      background: #1a73e8;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    button:hover {
+      background: #1765cc;
+    }
+    .replacement-list {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 8px;
+    }
+    .replacement-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      background: #f8f9fa;
+    }
+    .replacement-text {
+      flex: 1;
+      font-size: 13px;
+    }
+    .replacement-pattern {
+      font-weight: 500;
+      color: #202124;
+    }
+    .replacement-arrow {
+      margin: 0 8px;
+      color: #5f6368;
+    }
+    .delete-btn {
+      background: #d93025;
+      padding: 4px 8px;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+    .delete-btn:hover {
+      background: #c5221f;
+    }
+    .builtin {
+      opacity: 0.7;
+    }
+    .builtin-label {
+      font-size: 11px;
+      color: #5f6368;
+      background: #e8eaed;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 8px;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 24px;
+      color: #5f6368;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔄 Word Swap</h1>
+  
+  <div class="input-group">
+    <input type="text" id="pattern" placeholder="Word to replace (e.g., blockchain)">
+    <input type="text" id="replace" placeholder="Replace with (e.g., magic beans)">
+    <button id="add">Add Replacement</button>
+  </div>
+
+  <h2>Active Replacements</h2>
+  <div class="replacement-list" id="replacementList"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
