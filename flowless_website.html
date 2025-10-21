@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowless - Replace Social Feeds with Inspiring Quotes</title>
+  <meta name="description" content="Break free from endless scrolling. Flowless replaces your social media feeds with inspiring quotes to help you stay focused and intentional.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #0a0b0f;
+      --bg-secondary: #12141c;
+      --bg-tertiary: #1a1d28;
+      --accent: #7c5cff;
+      --accent-hover: #6846ff;
+      --text-primary: #ffffff;
+      --text-secondary: #a8afc7;
+      --text-muted: #6b7280;
+      --border: rgba(255, 255, 255, 0.1);
+      --glow: rgba(124, 92, 255, 0.3);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      padding: 24px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10, 11, 15, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent), #9d7cff);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 4px 20px rgba(124, 92, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(124, 92, 255, 0.5);
+    }
+
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-secondary);
+      border-color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 0 120px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.5; transform: translateX(-50%) scale(1.1); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #ffffff, #a8afc7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 8px 16px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Preview Section */
+    .word-replacement {
+      padding: 100px 0;
+      background: var(--bg-primary);
+    }
+
+    .preview {
+      padding: 80px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .preview-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .preview-mockup {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preview-mockup::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(124, 92, 255, 0.1) 0%, transparent 50%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .quote-display {
+      position: relative;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .quote-display h3 {
+      font-size: 24px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .quote-display p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .preview-text h2 {
+      font-size: 42px;
+      margin-bottom: 24px;
+    }
+
+    .preview-text p {
+      color: var(--text-secondary);
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 100px 0;
+    }
+
+    .features h2 {
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent), #9d7cff);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* How It Works */
+    .how-it-works {
+      padding: 100px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    .how-it-works h2 {
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 auto 24px;
+      box-shadow: 0 4px 20px var(--glow);
+    }
+
+    .step h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 20px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-section h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .footer-section a {
+      display: block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+
+    .footer-section a:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .hero h1 { font-size: 48px; }
+      .preview-content { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <div class="logo-icon">✨</div>
+          <span>Flowless</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how">How it Works</a>
+          <a href="https://github.com/gtmengine/Flowless-" target="_blank">GitHub</a>
+          <a href="https://chromewebstore.google.com/detail/EXTENSION_ID" class="btn btn-primary">Install Extension</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Break Free from<br>Endless Scrolling</h1>
+        <p>Replace your social media feeds with inspiring quotes and eliminate distracting language across the web. Stay focused, intentional, and in control of your digital life.</p>
+        <div class="hero-buttons">
+          <a href="https://chromewebstore.google.com/detail/EXTENSION_ID" class="btn btn-primary">
+            Add to Chrome - It's Free
+          </a>
+          <a href="https://github.com/gtmengine/Flowless-" class="btn btn-secondary">
+            View on GitHub →
+          </a>
+        </div>
+        <div class="hero-badges">
+          <span class="badge">⚡ Lightweight</span>
+          <span class="badge">🔒 Privacy First</span>
+          <span class="badge">🎯 Open Source</span>
+          <span class="badge">✨ Version 2.3.1</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="preview">
+    <div class="container">
+      <div class="preview-content">
+        <div class="preview-mockup">
+          <div class="quote-display">
+            <h3>"The journey of a thousand miles begins with a single step."</h3>
+            <p>— Lao Tzu</p>
+          </div>
+        </div>
+        <div class="preview-text">
+          <h2>Transform Your Feed</h2>
+          <p>Instead of endless posts and distractions, every time you open a social media site, you'll see a carefully curated quote designed to inspire and refocus your mind.</p>
+          <p>Plus, Flowless intelligently replaces distracting words and phrases across the web, helping you stay focused and intentional with every click.</p>
+          <a href="#features" class="btn btn-secondary">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="word-replacement">
+    <div class="container">
+      <div class="preview-content" style="grid-template-columns: 1fr 1fr;">
+        <div class="preview-text">
+          <h2>Intelligent Word Replacement</h2>
+          <p>Flowless doesn't just transform your feeds—it actively cleans up distracting language across the entire web.</p>
+          <div style="margin-top: 24px;">
+            <div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 4px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;">Before</span>
+                <span style="color: var(--text-secondary); font-size: 15px;">"This AI-powered tool will change everything"</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="background: rgba(34, 197, 94, 0.2); color: #22c55e; padding: 4px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;">After</span>
+                <span style="color: var(--text-primary); font-size: 15px;">"This cocaine-powered tool will change everything"</span>
+              </div>
+            </div>
+            <div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 4px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;">Before</span>
+                <span style="color: var(--text-secondary); font-size: 15px;">"Subscribe now for exclusive content!"</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="background: rgba(34, 197, 94, 0.2); color: #22c55e; padding: 4px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;">After</span>
+                <span style="color: var(--text-primary); font-size: 15px;">"Give us money for stuff you probably don't need"</span>
+              </div>
+            </div>
+            <div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 4px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;">Before</span>
+                <span style="color: var(--text-secondary); font-size: 15px;">"Join the community of innovators!"</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="background: rgba(34, 197, 94, 0.2); color: #22c55e; padding: 4px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;">After</span>
+                <span style="color: var(--text-primary); font-size: 15px;">"Join the community of people with too much free time"</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 16px; padding: 28px;">
+            <h3 style="font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 24px;">🎯</span>
+              Reduces Clickbait
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">Automatically neutralizes sensationalized headlines and manipulative language that's designed to grab your attention.</p>
+          </div>
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 16px; padding: 28px;">
+            <h3 style="font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 24px;">🧠</span>
+              Promotes Calm Browsing
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">Removes anxiety-inducing and FOMO-triggering phrases, creating a more peaceful browsing experience.</p>
+          </div>
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 16px; padding: 28px;">
+            <h3 style="font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 24px;">⚙️</span>
+              Fully Customizable
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">Add your own word replacements and build a custom dictionary that fits your browsing preferences.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Why Flowless?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Lightning Fast</h3>
+          <p>Minimal resource usage with optimized code. Your browser stays snappy and responsive at all times.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Privacy by Default</h3>
+          <p>Everything runs locally in your browser. No tracking, no accounts, no data collection. Ever.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>One Task, Done Right</h3>
+          <p>Focused on solving one problem exceptionally well. No bloat, no feature creep, no distractions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Works Offline</h3>
+          <p>All quotes are stored locally. Flowless works perfectly even without an internet connection.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔤</div>
+          <h3>Smart Word Replacement</h3>
+          <p>Automatically replaces distracting words and phrases across the web with more intentional alternatives.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔧</div>
+          <h3>Easy Setup</h3>
+          <p>Install in seconds. One click and you're done. No complicated configuration required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Install Extension</h3>
+          <p>Add Flowless to Chrome from the Web Store or install manually from GitHub</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Pin to Toolbar</h3>
+          <p>Pin the extension icon to your browser toolbar for easy access</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Start Browsing</h3>
+          <p>Your social feeds are now replaced with inspiring quotes automatically</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Reclaim Your Focus?</h2>
+      <p>Join thousands of users who've transformed their social media experience</p>
+      <div class="hero-buttons">
+        <a href="https://chromewebstore.google.com/detail/EXTENSION_ID" class="btn btn-primary">
+          Install Flowless Now
+        </a>
+        <a href="https://github.com/gtmengine/Flowless-" class="btn btn-secondary">
+          Star on GitHub ⭐
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">
+            <div class="logo-icon">✨</div>
+            <span>Flowless</span>
+          </div>
+          <p style="color: var(--text-secondary); max-width: 300px;">
+            Simple, focused, and intentional social media browsing. Open source and privacy-first.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#how">How it Works</a>
+          <a href="https://github.com/gtmengine/Flowless-">GitHub</a>
+          <a href="https://chromewebstore.google.com/detail/EXTENSION_ID">Chrome Store</a>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+          <a href="mailto:contact@flowless.app">Contact</a>
+          <a href="mailto:support@flowless.app">Support</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Flowless. Made with focus and intention. Open source under MIT License.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
